@@ -2,7 +2,7 @@ package lotto.view
 
 object InputView {
 
-    private const val NUMBER_DEMILITER = ","
+    private const val NUMBER_DELIMETER = ","
 
     fun getUserInputMoney(): Int {
         println("로또 구입금액을 입력해주세요.")
@@ -11,7 +11,7 @@ object InputView {
             money = readLine()
         }
 
-        return money.toInt()
+        return money.toIntOrNull() ?: 0
     }
 
     fun getInputLuckyNumber(): List<Int> {
@@ -20,6 +20,6 @@ object InputView {
         while (numbers.isNullOrBlank()) {
             numbers = readLine()
         }
-        return numbers.split(NUMBER_DEMILITER).map { it.toInt() }
+        return numbers.split(NUMBER_DELIMETER).map { it.toInt() }
     }
 }

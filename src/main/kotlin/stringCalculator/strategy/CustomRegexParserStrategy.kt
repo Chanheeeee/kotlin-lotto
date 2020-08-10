@@ -2,8 +2,6 @@ package stringCalculator.strategy
 
 class CustomRegexParserStrategy : ParserStrategy {
 
-    val CUSTOM_REGEX_PATTERN = Regex("//(.)\\\\n(.*)")
-
     override fun parsingNumber(inputValue: String): List<Int> {
         val result = CUSTOM_REGEX_PATTERN.find(inputValue) ?: throw NullPointerException("null")
         var numberTokens: List<Int> = listOf()
@@ -19,5 +17,6 @@ class CustomRegexParserStrategy : ParserStrategy {
     }
     companion object {
         const val DEFAULT_VALUE = 0
+        val CUSTOM_REGEX_PATTERN = Regex("//(.)\\\\n(.*)")
     }
 }
